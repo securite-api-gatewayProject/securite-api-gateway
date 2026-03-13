@@ -1,11 +1,15 @@
 """
-User Service — Microservice Flask
+user-service.py
+───────────────
+Microservice Flask — Gestion des utilisateurs
+Fait partie du projet : Secure API Gateway
+
 Endpoints:
-  GET  /health          -> statut du service
-  GET  /users           -> liste des utilisateurs
-  GET  /users/<id>      -> détail d'un utilisateur
-  POST /users/login     -> authentification
-  POST /users/register  -> création de compte
+  GET  /health            -> statut du service
+  GET  /users             -> liste des utilisateurs
+  GET  /users/<id>        -> détail d'un utilisateur
+  POST /users/login       -> authentification
+  POST /users/register    -> création de compte
 """
 
 from flask import Flask, request, jsonify
@@ -96,9 +100,7 @@ def login():
     if not username or not password:
         return jsonify({"error": "username and password are required"}), 400
 
-    # Recherche de l'utilisateur par username
     user = next((u for u in USERS_DB.values() if u["username"] == username), None)
-
     if not user:
         return jsonify({"error": "Invalid credentials"}), 401
 
@@ -106,9 +108,7 @@ def login():
     if user["password_hash"] != password_hash:
         return jsonify({"error": "Invalid credentials"}), 401
 
-    # Génère un faux token (en Phase 2, Kong JWT prendra le relais)
     fake_token = str(uuid.uuid4())
-
     return jsonify({
         "message": "Login successful",
         "token": fake_token,
@@ -127,13 +127,12 @@ def register():
         return jsonify({"error": "JSON body required"}), 400
 
     username = data.get("username", "").strip()
-    email = data.get("email", "").strip()
+    email    = data.get("email", "").strip()
     password = data.get("password", "")
 
     if not all([username, email, password]):
         return jsonify({"error": "username, email and password are required"}), 400
 
-    # Vérifie si l'username est déjà pris
     existing = next((u for u in USERS_DB.values() if u["username"] == username), None)
     if existing:
         return jsonify({"error": "Username already taken"}), 409
@@ -156,4 +155,4 @@ def register():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5001, debug=True)
