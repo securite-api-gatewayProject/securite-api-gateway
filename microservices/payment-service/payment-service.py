@@ -13,48 +13,88 @@ Endpoints:
 """
 
 from flask import Flask, request, jsonify
+from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import uuid
 import random
+import os
 
 app = Flask(__name__)
 
-# ── Base de données simulée en mémoire ──────────────────────────
-PAYMENTS_DB = {
-    "pay_001": {
-        "id": "pay_001",
-        "user_id": "1",
-        "amount": 150.00,
-        "currency": "EUR",
-        "status": "completed",
-        "method": "credit_card",
-        "description": "Subscription Premium",
-        "created_at": "2024-03-01T10:00:00",
-    },
-    "pay_002": {
-        "id": "pay_002",
-        "user_id": "2",
-        "amount": 49.99,
-        "currency": "EUR",
-        "status": "completed",
-        "method": "paypal",
-        "description": "One-time purchase",
-        "created_at": "2024-03-05T14:30:00",
-    },
-    "pay_003": {
-        "id": "pay_003",
-        "user_id": "1",
-        "amount": 200.00,
-        "currency": "USD",
-        "status": "pending",
-        "method": "bank_transfer",
-        "description": "Enterprise license",
-        "created_at": "2024-03-10T09:00:00",
-    },
-}
+# ── Configuration PostgreSQL ──────────────────────────────────
+DATABASE_URL = os.getenv(
+    "DATABASE_URL",
+    "postgresql://postgres:password@localhost:5432/api_gateway"
+)
+app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+db = SQLAlchemy(app)
 
 VALID_METHODS    = {"credit_card", "paypal", "bank_transfer", "crypto"}
 VALID_CURRENCIES = {"EUR", "USD", "GBP", "MAD"}
+
+# ── Modèle paiement ──────────────────────────────────────────
+class Payment(db.Model):
+    __tablename__ = "payments"
+    
+    id = db.Column(db.String(36), primary_key=True)
+    user_id = db.Column(db.String(36), nullable=False, index=True)
+    amount = db.Column(db.Float, nullable=False)
+    currency = db.Column(db.String(3), default="EUR")
+    status = db.Column(db.String(20), default="pending")
+    method = db.Column(db.String(50), nullable=False)
+    description = db.Column(db.String(255))
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    
+    def to_dict(self):
+        """Convertit le paiement en dictionnaire."""
+        return {
+            "id": self.id,
+            "user_id": self.user_id,
+            "amount": round(self.amount, 2),
+            "currency": self.currency,
+            "status": self.status,
+            "method": self.method,
+            "description": self.description,
+            "created_at": self.created_at.isoformat(),
+        }
+
+# Créer les tables au démarrage
+with app.app_context():
+    db.create_all()
+    # Remplir les données par défaut si vide
+    if Payment.query.count() == 0:
+        default_payments = [
+            Payment(
+                id="pay_001",
+                user_id="1",
+                amount=150.00,
+                currency="EUR",
+                status="completed",
+                method="credit_card",
+                description="Subscription Premium",
+            ),
+            Payment(
+                id="pay_002",
+                user_id="2",
+                amount=49.99,
+                currency="EUR",
+                status="completed",
+                method="paypal",
+                description="One-time purchase",
+            ),
+            Payment(
+                id="pay_003",
+                user_id="1",
+                amount=200.00,
+                currency="USD",
+                status="pending",
+                method="bank_transfer",
+                description="Enterprise license",
+            ),
+        ]
+        db.session.add_all(default_payments)
+        db.session.commit()
 
 
 # ── Routes ──────────────────────────────────────────────────────
@@ -73,13 +113,14 @@ def health():
 def get_payments():
     """Retourne la liste de tous les paiements (filtre optionnel: ?status=completed)."""
     status_filter = request.args.get("status")
-    payments = list(PAYMENTS_DB.values())
-
+    
+    query = Payment.query
     if status_filter:
-        payments = [p for p in payments if p["status"] == status_filter]
-
+        query = query.filter_by(status=status_filter)
+    
+    payments = query.all()
     return jsonify({
-        "payments": payments,
+        "payments": [p.to_dict() for p in payments],
         "count": len(payments),
     }), 200
 
@@ -87,10 +128,10 @@ def get_payments():
 @app.route("/payments/<payment_id>", methods=["GET"])
 def get_payment(payment_id: str):
     """Retourne un paiement par son ID."""
-    payment = PAYMENTS_DB.get(payment_id)
+    payment = Payment.query.get(payment_id)
     if not payment:
         return jsonify({"error": "Payment not found", "id": payment_id}), 404
-    return jsonify(payment), 200
+    return jsonify(payment.to_dict()), 200
 
 
 @app.route("/payments", methods=["POST"])
@@ -129,35 +170,35 @@ def create_payment():
     status = "completed" if random.random() > 0.1 else "failed"
 
     payment_id  = f"pay_{uuid.uuid4().hex[:8]}"
-    new_payment = {
-        "id": payment_id,
-        "user_id": user_id,
-        "amount": round(float(amount), 2),
-        "currency": currency,
-        "status": status,
-        "method": method,
-        "description": description,
-        "created_at": datetime.utcnow().isoformat(),
-    }
-    PAYMENTS_DB[payment_id] = new_payment
+    new_payment = Payment(
+        id=payment_id,
+        user_id=user_id,
+        amount=round(float(amount), 2),
+        currency=currency,
+        status=status,
+        method=method,
+        description=description,
+    )
+    db.session.add(new_payment)
+    db.session.commit()
 
     http_status = 201 if status == "completed" else 402
     return jsonify({
         "message": f"Payment {status}",
-        "payment": new_payment,
+        "payment": new_payment.to_dict(),
     }), http_status
 
 
 @app.route("/payments/user/<user_id>", methods=["GET"])
 def get_payments_by_user(user_id: str):
     """Retourne tous les paiements d'un utilisateur."""
-    user_payments = [p for p in PAYMENTS_DB.values() if p["user_id"] == user_id]
+    user_payments = Payment.query.filter_by(user_id=user_id).all()
 
-    total = sum(p["amount"] for p in user_payments if p["status"] == "completed")
+    total = sum(p.amount for p in user_payments if p.status == "completed")
 
     return jsonify({
         "user_id": user_id,
-        "payments": user_payments,
+        "payments": [p.to_dict() for p in user_payments],
         "count": len(user_payments),
         "total_completed": round(total, 2),
     }), 200

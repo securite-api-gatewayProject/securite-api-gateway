@@ -1,12 +1,16 @@
 _format_version: "3.0"
+_transform: true
 
 services:
   - name: mock-service
-    url: http://mock-service:80
+    host: mock-service
+    port: 80
+    protocol: http
     routes:
       - name: mock-route
         paths:
           - /mock
+        strip_path: false
     plugins:
       - name: rate-limiting
         config:
@@ -15,8 +19,36 @@ services:
       - name: ip-restriction
         config:
           deny:
-            - "1.2.3.4"   # IP malveillante fictive
-#      - name: request-termination
- #       config:
-  #        status_code: 403
-   #       message: "Access denied"  # Bloque IP si détectée malveillante
+            - "1.2.3.4"
+
+  - name: user-service
+    host: user-service
+    port: 5001
+    protocol: http
+    routes:
+      - name: users-route
+        paths:
+          - /users
+        strip_path: false
+      - name: users-login-route
+        paths:
+          - /users/login
+        strip_path: false
+      - name: users-register-route
+        paths:
+          - /users/register
+        strip_path: false
+
+  - name: payment-service
+    host: payment-service
+    port: 5002
+    protocol: http
+    routes:
+      - name: payments-route
+        paths:
+          - /payments
+        strip_path: false
+      - name: payments-user-route
+        paths:
+          - /payments/user
+        strip_path: false
