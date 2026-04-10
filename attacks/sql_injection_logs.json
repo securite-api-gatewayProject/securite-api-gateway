@@ -1,0 +1,80 @@
+[
+  {
+    "timestamp": "2026-04-10T14:18:12.046013Z",
+    "type": "SQL_INJECTION",
+    "payload_name": "OR bypass classique",
+    "url": "http://localhost:5001/users/login",
+    "payload_sent": {
+      "username": "admin' OR '1'='1",
+      "password": "anything"
+    },
+    "http_status": 401,
+    "response": "{\n  \"error\": \"Invalid credentials\"\n}\n",
+    "vulnerable": false
+  },
+  {
+    "timestamp": "2026-04-10T14:18:12.105055Z",
+    "type": "SQL_INJECTION",
+    "payload_name": "Commentaire SQL",
+    "url": "http://localhost:5001/users/login",
+    "payload_sent": {
+      "username": "admin'--",
+      "password": "anything"
+    },
+    "http_status": 401,
+    "response": "{\n  \"error\": \"Invalid credentials\"\n}\n",
+    "vulnerable": false
+  },
+  {
+    "timestamp": "2026-04-10T14:18:12.142574Z",
+    "type": "SQL_INJECTION",
+    "payload_name": "Toujours vrai",
+    "url": "http://localhost:5001/users/login",
+    "payload_sent": {
+      "username": "' OR 1=1 --",
+      "password": "x"
+    },
+    "http_status": 401,
+    "response": "{\n  \"error\": \"Invalid credentials\"\n}\n",
+    "vulnerable": false
+  },
+  {
+    "timestamp": "2026-04-10T14:18:12.188322Z",
+    "type": "SQL_INJECTION",
+    "payload_name": "UNION SELECT",
+    "url": "http://localhost:5001/users/login",
+    "payload_sent": {
+      "username": "' UNION SELECT NULL,username,password FROM users--",
+      "password": "x"
+    },
+    "http_status": 401,
+    "response": "{\n  \"error\": \"Invalid credentials\"\n}\n",
+    "vulnerable": false
+  },
+  {
+    "timestamp": "2026-04-10T14:18:12.235587Z",
+    "type": "SQL_INJECTION",
+    "payload_name": "DROP TABLE",
+    "url": "http://localhost:5001/users/login",
+    "payload_sent": {
+      "username": "'; DROP TABLE users; --",
+      "password": "x"
+    },
+    "http_status": 401,
+    "response": "{\n  \"error\": \"Invalid credentials\"\n}\n",
+    "vulnerable": false
+  },
+  {
+    "timestamp": "2026-04-10T14:18:12.273433Z",
+    "type": "SQL_INJECTION",
+    "payload_name": "Blind injection (sleep)",
+    "url": "http://localhost:5001/users/login",
+    "payload_sent": {
+      "username": "' OR SLEEP(3)--",
+      "password": "x"
+    },
+    "http_status": 401,
+    "response": "{\n  \"error\": \"Invalid credentials\"\n}\n",
+    "vulnerable": false
+  }
+]
