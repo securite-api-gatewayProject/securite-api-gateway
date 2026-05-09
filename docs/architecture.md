@@ -58,14 +58,14 @@
         │  │ • Routing intelligent            │  │
         │  │ • Logging & Monitoring           │  │
         │  └──────────────────────────────────┘  │
-        └──────┬──────────────────┬────────┬──────┘
-               │                  │        │
-      ┌────────▼──────┐  ┌───────▼──┐  ┌──▼────────┐
-      │ /users        │  │ /payments │  │ /mock     │
-      │ /users/login  │  │ /payments/│  │ (test)    │
-      │ /users/...    │  │ user/...  │  └──────────┘
-      └────────┬──────┘  └───────┬──┘
-               │                  │
+         └──────┬──────────────────┬──────┘
+           │                  │
+            ┌────────▼──────┐  ┌───────▼──┐
+            │ /users        │  │ /payments │
+            │ /users/login  │  │ /payments/│
+            │ /users/...    │  │ user/...  │
+            └────────┬──────┘  └───────┬──┘
+           │                  │
       ┌────────▼─────────────┐  ┌─▼─────────────────┐
       │ user-service (5001)  │  │ payment-service   │
       │ Flask Python         │  │ Flask Python      │
@@ -95,7 +95,7 @@
 | **user-service** | Flask + SQLAlchemy | 5001 | Gestion utilisateurs |
 | **payment-service** | Flask + SQLAlchemy | 5002 | Gestion paiements |
 | **PostgreSQL** | Database | 5432 | Persistance données |
-| **mock-service** | Nginx | 5000 | Service de test |
+| **mock-service** | Nginx | 80 (interne) | Service de test (mode test uniquement) |
 
 ---
 
@@ -317,15 +317,6 @@ _format_version: "3.0"
 _transform: true
 
 services:
-  - name: mock-service
-    host: mock-service
-    port: 80
-    routes:
-      - paths: [/mock]
-    plugins:
-      - rate-limiting (5 req/min)
-      - ip-restriction (1.2.3.4 bloquée)
-
   - name: user-service
     host: user-service
     port: 5001
@@ -337,6 +328,17 @@ services:
     port: 5002
     routes:
       - paths: [/payments, /payments/user]
+```
+
+Configuration de test (fichier `kong.test.yml`) ajoute en plus:
+
+```yaml
+services:
+  - name: mock-service
+    host: mock-service
+    port: 80
+    routes:
+      - paths: [/mock]
 ```
 
 **Plugins activés:**
@@ -658,7 +660,7 @@ python-dotenv==1.0.0
 ```
 postgres:15-alpine        (38 MB, base de données)
 kong:latest              (300+ MB, API Gateway)
-nginx:latest             (40 MB, mock-service)
+nginx:latest             (40 MB, mock-service en mode test)
 python:3.11-slim         (130 MB, user-service, payment-service)
 ```
 

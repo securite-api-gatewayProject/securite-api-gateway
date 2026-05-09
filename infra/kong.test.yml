@@ -2,6 +2,25 @@ _format_version: "3.0"
 _transform: true
 
 services:
+  - name: mock-service
+    host: mock-service
+    port: 80
+    protocol: http
+    routes:
+      - name: mock-route
+        paths:
+          - /mock
+        strip_path: true
+    plugins:
+      - name: rate-limiting
+        config:
+          minute: 5
+          policy: local
+      - name: ip-restriction
+        config:
+          deny:
+            - "1.2.3.4"
+
   - name: user-service
     host: user-service
     port: 5001
@@ -10,15 +29,15 @@ services:
       - name: users-route
         paths:
           - /users
-        strip_path: false
+        strip_path: true
       - name: users-login-route
         paths:
           - /users/login
-        strip_path: false
+        strip_path: true
       - name: users-register-route
         paths:
           - /users/register
-        strip_path: false
+        strip_path: true
 
   - name: payment-service
     host: payment-service
@@ -28,8 +47,8 @@ services:
       - name: payments-route
         paths:
           - /payments
-        strip_path: false
+        strip_path: true
       - name: payments-user-route
         paths:
           - /payments/user
-        strip_path: false
+        strip_path: true

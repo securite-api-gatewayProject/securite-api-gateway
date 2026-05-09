@@ -1,0 +1,14 @@
+services:
+  mock-service:
+    image: nginx
+    container_name: mock-service
+    networks:
+      - kong-net
+
+  kong:
+    volumes:
+      - ./kong.test.yml:/kong/kong.yml
+    depends_on:
+      - user-service
+      - payment-service
+      - mock-service

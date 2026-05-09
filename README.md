@@ -6,6 +6,7 @@ Une infrastructure microservices containerisée avec API Gateway pour démontrer
 
 - **API Gateway (Kong)** : Routage centralisé, rate limiting, IP filtering
 - **Microservices Flask** : user-service & payment-service indépendants
+- **Admin Dashboard** : interface simple pour consulter Kong, Suricata et tester l'authentification
 - **PostgreSQL** : Persistance des données (users, payments)
 - **Docker Compose** : Déploiement simplifié (5 conteneurs orchestrés)
 - **Sécurité** : Rate limiting (5 req/min), IP blacklist, password hashing SHA256
@@ -20,9 +21,8 @@ KONG API GATEWAY (port 8000)
 ├─ IP Restriction
 └─ Routing Rules
     ├─ /users → user-service:5001
-    ├─ /payments → payment-service:5002
-    └─ /mock → nginx:80
-        ↓
+  └─ /payments → payment-service:5002
+  ↓
 PostgreSQL (5432)
 ├─ users table
 └─ payments table
@@ -50,6 +50,30 @@ docker-compose up --build
 
 # 4. Attendre le message "services are running" (~30-60s)
 ```
+
+### Mode test (avec mock-service)
+
+```powershell
+cd infra
+docker-compose -f docker-compose.yml -f docker-compose.test.yml up --build
+```
+
+Dans ce mode, Kong charge `kong.test.yml` et expose aussi la route `/mock`.
+
+### Interface admin
+
+Une interface d'administration est disponible sur :
+
+```text
+http://localhost:8082
+```
+
+Identifiants par défaut :
+
+- utilisateur : `admin`
+- mot de passe : `admin123`
+
+Cette interface permet de consulter la configuration de Kong et de Suricata, de récupérer un JWT via `user-service/login`, puis de tester les endpoints protégés.
 
 ## 🧪 Tests
 
@@ -87,7 +111,9 @@ curl -X POST http://localhost:8000/payments \
 securite-api-gateway/
 ├── infra/
 │   ├── docker-compose.yml       # Orchestration des services
-│   └── kong.yml                 # Configuration Kong
+│   ├── docker-compose.test.yml  # Surcharge test (mock-service)
+│   ├── kong.yml                 # Configuration Kong (mode normal)
+│   └── kong.test.yml            # Configuration Kong (mode test)
 │
 ├── microservices/
 │   ├── user-service/            # Gestion utilisateurs (5001)
@@ -117,6 +143,13 @@ securite-api-gateway/
 ```
 
 ## 📚 Documentation
+
+- **[SECURITY.md](SECURITY.md)** : Analyse complète de la sécurité du système
+  - Architecture de défense multi-couches
+  - Couches de sécurité implémentées (Kong, Auth, Payments, DB, Docker)
+  - Menaces protégées et vulnérabilités
+  - Recommandations de sécurité
+  - Checklist production
 
 - **[architecture.md](docs/architecture.md)** : Documentation technique complète
   - Vue d'ensemble & architecture

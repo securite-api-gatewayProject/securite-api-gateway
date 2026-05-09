@@ -1,16 +1,10 @@
-version: '3.8'
-
 services:
 
   postgres:
     image: postgres:15-alpine
     container_name: postgres-db
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: api_gateway
-    ports:
-      - "5432:5432"
+    env_file:
+      - ../.env
     volumes:
       - postgres-data:/var/lib/postgresql/data
     networks:
@@ -24,27 +18,21 @@ services:
   user-service:
     build: ../microservices/user-service
     container_name: user-service
-    environment:
-      DATABASE_URL: postgresql://postgres:password@postgres:5432/api_gateway
-      FLASK_ENV: development
-    ports:
-      - "5001:5001"
+    env_file:
+      - ../.env
     depends_on:
       postgres:
         condition: service_healthy
     networks:
       - kong-net
     volumes:
-      - ../microservices/user-service:/app
+      - ../microservices/user-service:/app:ro
 
   payment-service:
     build: ../microservices/payment-service
     container_name: payment-service
-    environment:
-      DATABASE_URL: postgresql://postgres:password@postgres:5432/api_gateway
-      FLASK_ENV: development
-    ports:
-      - "5002:5002"
+    env_file:
+      - ../.env
     depends_on:
       postgres:
         condition: service_healthy
@@ -65,7 +53,7 @@ services:
       KONG_ADMIN_ERROR_LOG: /dev/stderr
     ports:
       - "8000:8000"   # Proxy
-      - "8001:8001"   # Admin API
+      - "127.0.0.1:8001:8001"   # Admin API
     volumes:
       - ./kong.yml:/kong/kong.yml
     depends_on:
@@ -74,13 +62,101 @@ services:
     networks:
       - kong-net
 
-  mock-service:
-    image: nginx
-    container_name: mock-service
+  admin-ui:
+    build: ../admin-ui
+    container_name: admin-ui
+    environment:
+      FLASK_SECRET_KEY: admin-ui-secret-key
+      ADMIN_USERNAME: admin
+      ADMIN_PASSWORD: admin123
+      KONG_ADMIN_URL: http://kong:8001
+      USER_SERVICE_URL: http://user-service:5001
+      PAYMENT_SERVICE_URL: http://payment-service:5002
+      SURICATA_CONFIG_PATH: /shared/suricata.yaml
+      SURICATA_EVE_PATH: /shared/eve.json
+      KONG_CACHE_TTL: 8
+      SURICATA_ALERTS_CACHE_TTL: 8
     ports:
-      - "5000:80"
+      - "8082:8080"
+    volumes:
+      - ./suricata/suricata.yaml:/shared/suricata.yaml:ro
+      - ./suricata/logs/eve.json:/shared/eve.json:ro
+    depends_on:
+      kong:
+        condition: service_started
+      user-service:
+        condition: service_started
+      payment-service:
+        condition: service_started
+      suricata:
+        condition: service_started
     networks:
       - kong-net
+
+  suricata:
+    image: jasonish/suricata:latest
+    container_name: suricata
+    command: -c /etc/suricata/suricata.yaml -i eth0
+    environment:
+      - SURICATA_RULES_DIR=/var/lib/suricata/rules
+    volumes:
+      - ./suricata/suricata.yaml:/etc/suricata/suricata.yaml:ro
+      - ./suricata/rules:/var/lib/suricata/rules:ro
+      - ./suricata/logs:/var/log/suricata
+    network_mode: host
+    depends_on:
+      kong:
+        condition: service_started
+      user-service:
+        condition: service_started
+      payment-service:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "pgrep", "-f", "suricata"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+    restart: on-failure
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+
+  threat-monitor:
+    build: ../threat-monitor
+    container_name: threat-monitor
+    environment:
+      KONG_ADMIN_URL: http://kong:8001
+    volumes:
+      - ./suricata/logs:/var/log/suricata:ro
+    networks:
+      - kong-net
+    depends_on:
+      kong:
+        condition: service_started
+      suricata:
+        condition: service_healthy
+    restart: on-failure
+    healthcheck:
+      test: ["CMD", "pgrep", "-f", "threat_monitor"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  suricata-log-pruner:
+    build: ../suricata-log-pruner
+    container_name: suricata-log-pruner
+    environment:
+      SURICATA_LOG_DIR: /var/log/suricata
+      KEEP_FILES: 20
+      INTERVAL_SECONDS: 60
+    volumes:
+      - ./suricata/logs:/var/log/suricata
+    depends_on:
+      suricata:
+        condition: service_started
+    restart: on-failure
 
 volumes:
   postgres-data:

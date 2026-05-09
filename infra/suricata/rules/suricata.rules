@@ -1,0 +1,64 @@
+# Suricata Rules for Secure API Gateway
+# Détection d'attaques courantes contre API REST
+
+# ============================================================================
+# Règles d'attaque SQL Injection
+# ============================================================================
+alert http $EXTERNAL_NET any -> $HOME_NET any (msg:"SQL Injection - UNION SELECT"; content:"UNION"; http_uri; nocase; content:"SELECT"; http_uri; nocase; distance:0; within:100; sid:1001; rev:1;)
+alert http $EXTERNAL_NET any -> $HOME_NET any (msg:"SQL Injection - OR 1=1"; content:"' OR '1'='1"; http_uri; nocase; sid:1002; rev:1;)
+alert http $EXTERNAL_NET any -> $HOME_NET any (msg:"SQL Injection - DROP TABLE"; content:"DROP"; http_uri; nocase; content:"TABLE"; http_uri; nocase; distance:0; within:50; sid:1003; rev:1;)
+alert http $EXTERNAL_NET any -> $HOME_NET any (msg:"SQL Injection - EXEC statement"; content:"EXEC"; http_uri; nocase; content:"("; http_uri; distance:0; within:10; sid:1004; rev:1;)
+
+# ============================================================================
+# Règles d'attaque XSS (Cross-Site Scripting)
+# ============================================================================
+alert http $EXTERNAL_NET any -> $HOME_NET any (msg:"XSS - Script tag"; content:"<script"; http_uri; nocase; sid:2001; rev:1;)
+alert http $EXTERNAL_NET any -> $HOME_NET any (msg:"XSS - JavaScript event handler"; content:"javascript:"; http_uri; nocase; sid:2002; rev:1;)
+alert http $EXTERNAL_NET any -> $HOME_NET any (msg:"XSS - SVG event"; content:"<svg"; http_uri; nocase; content:"onload"; nocase; sid:2003; rev:1;)
+alert http $EXTERNAL_NET any -> $HOME_NET any (msg:"XSS - IMG tag with onerror"; content:"<img"; http_uri; nocase; content:"onerror"; nocase; sid:2004; rev:1;)
+
+# ============================================================================
+# Règles de détection DoS/DDoS
+# ============================================================================
+alert http $EXTERNAL_NET any -> $HOME_NET any (msg:"HTTP - Excessive requests from single IP"; flow:established; threshold: type both, track by_src, count 100, seconds 60; sid:3001; rev:1;)
+alert http $EXTERNAL_NET any -> $HOME_NET any (msg:"HTTP - Slowloris potential attack"; content:"Host|3a|"; http_header; flow:established; sid:3002; rev:2;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (msg:"SYN Flood Detection"; flags:S; threshold:type both, track by_dst, count 50, seconds 60; sid:3003; rev:2;)
+
+# ============================================================================
+# Règles d'authentification et accès non autorisé
+# ============================================================================
+alert http $EXTERNAL_NET any -> $HOME_NET any (msg:"Brute Force - Multiple failed logins"; content:"/users/login"; http_uri; content:"POST"; http_method; threshold: type both, track by_src, count 10, seconds 60; sid:4001; rev:1;)
+alert http $EXTERNAL_NET any -> $HOME_NET any (msg:"Unauthorized access - Missing credentials"; content:"/users"; http_uri; content:"GET"; http_method; content:!"Authorization"; http_header; sid:4002; rev:1;)
+
+# ============================================================================
+# Règles pour APIs de paiement
+# ============================================================================
+alert http $EXTERNAL_NET any -> $HOME_NET any (msg:"Payment API - Suspicious amount"; content:"/payments"; http_uri; content:"POST"; http_method; content:"amount"; nocase; pcre:"/amount.*[0-9]{10,}/"; sid:5001; rev:1;)
+alert http $EXTERNAL_NET any -> $HOME_NET any (msg:"Payment API - Invalid currency"; content:"/payments"; http_uri; content:"currency"; nocase; pcre:"/(currency|curr).*(?!EUR|USD|GBP|MAD)/i"; sid:5002; rev:1;)
+
+# ============================================================================
+# Règles de détection d'anomalies de trafic
+# ============================================================================
+alert http $EXTERNAL_NET any -> $HOME_NET any (msg:"Suspicious User-Agent"; content:"User-Agent|3a|"; http_header; pcre:"/User-Agent\s*?:\s*(sqlmap|nikto|nmap|masscan|nessus)/i"; sid:6001; rev:1;)
+alert http $EXTERNAL_NET any -> $HOME_NET any (msg:"Empty User-Agent"; pcre:"/User-Agent\s*:\s*\r?\n/iH"; sid:6002; rev:2;)
+alert http $EXTERNAL_NET any -> $HOME_NET any (msg:"Suspicious methods - OPTIONS/TRACE/CONNECT"; content:"OPTIONS"; http_method; sid:6003; rev:1;)
+
+# ============================================================================
+# Règles de détection de fuites d'informations
+# ============================================================================
+alert http $EXTERNAL_NET any -> $HOME_NET any (msg:"Error message - Database disclosure"; content:"PostgreSQL"; nocase; content:"error"; nocase; sid:7001; rev:1;)
+alert http $EXTERNAL_NET any -> $HOME_NET any (msg:"Error message - Flask debug"; content:"Flask"; nocase; content:"Traceback"; nocase; sid:7002; rev:1;)
+alert http $EXTERNAL_NET any -> $HOME_NET any (msg:"Error message - Port disclosure"; content:"Connection refused"; nocase; sid:7003; rev:1;)
+
+# ============================================================================
+# Monitoring des services Kong et microservices
+# ============================================================================
+alert http $EXTERNAL_NET any -> 192.168.0.0/16 8000 (msg:"Kong - API Gateway request"; content:"GET"; http_method; flow:established; sid:8001; rev:1;)
+alert http $EXTERNAL_NET any -> 192.168.0.0/16 5001 (msg:"User Service - Access attempt"; content:"/users"; http_uri; flow:established; sid:8002; rev:1;)
+alert http $EXTERNAL_NET any -> 192.168.0.0/16 5002 (msg:"Payment Service - Access attempt"; content:"/payments"; http_uri; flow:established; sid:8003; rev:1;)
+
+# ============================================================================
+# Règles de conformité et alertes générales
+# ============================================================================
+alert http $EXTERNAL_NET any -> $HOME_NET any (msg:"HTTP - Large payload detected"; content:"POST"; http_method; content:!"Content-Length"; http_header; threshold: type both, track by_src, count 1, seconds 1; sid:9001; rev:1;)
+alert http $EXTERNAL_NET any -> $HOME_NET any (msg:"HTTP - Multiple 404 responses"; flow:established,to_client; http.stat_code; content:"404"; threshold:type both, track by_src, count 20, seconds 60; sid:9002; rev:2;)
