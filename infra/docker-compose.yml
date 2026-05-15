@@ -52,8 +52,8 @@ services:
       KONG_PROXY_ERROR_LOG: /dev/stderr
       KONG_ADMIN_ERROR_LOG: /dev/stderr
     ports:
-      - "8000:8000"   # Proxy
-      - "127.0.0.1:8001:8001"   # Admin API
+      - "8000:8000"
+      - "127.0.0.1:8001:8001"
     volumes:
       - ./kong.yml:/kong/kong.yml
     depends_on:
@@ -96,14 +96,15 @@ services:
   suricata:
     image: jasonish/suricata:latest
     container_name: suricata
-    command: -c /etc/suricata/suricata.yaml -i eth0
+    command: ["/bin/bash", "/tmp/start-suricata.sh"]
     environment:
       - SURICATA_RULES_DIR=/var/lib/suricata/rules
     volumes:
-      - ./suricata/suricata.yaml:/etc/suricata/suricata.yaml:ro
-      - ./suricata/rules:/var/lib/suricata/rules:ro
+      - ./suricata/suricata.yaml:/tmp/suricata.yaml
+      - ./suricata/rules/suricata.rules:/tmp/suricata.rules
+      - ./suricata/start-suricata.sh:/tmp/start-suricata.sh
       - ./suricata/logs:/var/log/suricata
-    network_mode: host
+    network_mode: "service:kong"
     depends_on:
       kong:
         condition: service_started
@@ -121,6 +122,7 @@ services:
     cap_add:
       - NET_ADMIN
       - NET_RAW
+      - SYS_NICE
 
   threat-monitor:
     build: ../threat-monitor
@@ -138,7 +140,7 @@ services:
         condition: service_healthy
     restart: on-failure
     healthcheck:
-      test: ["CMD", "pgrep", "-f", "threat_monitor"]
+      test: ["CMD", "python", "-c", "from pathlib import Path; raise SystemExit(0 if Path('/var/log/suricata/eve.json').is_file() else 1)"]
       interval: 30s
       timeout: 10s
       retries: 3

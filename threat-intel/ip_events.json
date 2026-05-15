@@ -1,0 +1,1312 @@
+{
+  "0.0.0.0": {
+    "count": 12,
+    "actions": [
+      {
+        "ts": "2026-05-13T10:45:16.879490Z",
+        "action": "MONITOR",
+        "reason": "BLOCK",
+        "ttl": null
+      },
+      {
+        "ts": "2026-05-13T10:45:16.926100Z",
+        "action": "RATE_LIMIT",
+        "reason": "BLOCK",
+        "ttl": 600,
+        "expires_at": "2026-05-13T10:55:16.926650Z"
+      },
+      {
+        "ts": "2026-05-13T10:45:16.955004Z",
+        "action": "BLOCK",
+        "reason": "BLOCK",
+        "ttl": 3600,
+        "expires_at": "2026-05-13T11:45:16.955035Z",
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:45:21.943618Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:45:26.795080Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:45:31.492793Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:59:03.865192Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:59:06.321409Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:59:08.994588Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:59:11.385736Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:59:13.899900Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:59:16.302555Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      }
+    ]
+  },
+  "172.19.0.5": {
+    "count": 66,
+    "actions": [
+      {
+        "ts": "2026-05-13T10:45:36.164762Z",
+        "action": "MONITOR",
+        "reason": "BLOCK",
+        "ttl": null
+      },
+      {
+        "ts": "2026-05-13T10:45:36.216754Z",
+        "action": "RATE_LIMIT",
+        "reason": "BLOCK",
+        "ttl": 600,
+        "expires_at": "2026-05-13T10:55:36.216847Z"
+      },
+      {
+        "ts": "2026-05-13T10:45:36.273322Z",
+        "action": "BLOCK",
+        "reason": "BLOCK",
+        "ttl": 3600,
+        "expires_at": "2026-05-13T11:45:36.273356Z",
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:45:46.228909Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:45:51.046390Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:46:05.335734Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:46:09.875865Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:46:14.840662Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:46:33.972400Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:46:38.091583Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:46:42.631030Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:47:01.779283Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:47:06.477873Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:47:10.578308Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:47:29.075229Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:47:33.880790Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:47:38.763486Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:47:58.159473Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:48:17.142961Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:48:30.861203Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:48:49.870763Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:49:09.477819Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:49:28.790842Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:49:48.130344Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:50:02.076221Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:50:21.026131Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:50:35.275196Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:50:49.867019Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:50:59.456617Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:59:18.645495Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:59:21.306964Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:59:23.827971Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:59:33.946431Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:59:36.320138Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:59:43.596956Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:59:46.081740Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:59:48.445849Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:59:58.274806Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:00:01.148863Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:00:03.553121Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:00:13.571298Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:00:15.911744Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:00:18.303583Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:00:28.035987Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:00:30.344202Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:00:32.877798Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:00:42.519164Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:00:52.668414Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:00:59.959959Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:01:09.530932Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:01:19.811187Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:01:30.087745Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:01:39.903890Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:01:47.599736Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:01:57.753455Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:02:04.891084Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:02:12.379004Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:02:17.095325Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:02:24.225530Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:02:31.787344Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:02:39.372140Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:02:49.341381Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:02:57.089891Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:03:04.819158Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:03:09.572733Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:03:16.629161Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      }
+    ]
+  },
+  "172.19.0.1": {
+    "count": 107,
+    "actions": [
+      {
+        "ts": "2026-05-13T10:45:40.927867Z",
+        "action": "MONITOR",
+        "reason": "BLOCK",
+        "ttl": null
+      },
+      {
+        "ts": "2026-05-13T10:45:41.009633Z",
+        "action": "RATE_LIMIT",
+        "reason": "BLOCK",
+        "ttl": 600,
+        "expires_at": "2026-05-13T10:55:41.009680Z"
+      },
+      {
+        "ts": "2026-05-13T10:45:41.181859Z",
+        "action": "BLOCK",
+        "reason": "BLOCK",
+        "ttl": 3600,
+        "expires_at": "2026-05-13T11:45:41.182034Z",
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:45:55.696485Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:46:00.370687Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:46:19.355198Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:46:24.277058Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:46:29.225097Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:46:47.372772Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:46:52.187750Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:46:57.074766Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:47:15.254818Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:47:19.596966Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:47:24.268876Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:47:43.465165Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:47:48.535371Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:47:53.343882Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:48:02.884895Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:48:07.771725Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:48:12.125783Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:48:21.529538Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:48:26.162587Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:48:35.742219Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:48:40.514084Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:48:44.905613Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:48:54.655688Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:48:59.593407Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:49:04.624012Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:49:14.442426Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:49:19.112642Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:49:23.874150Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:49:33.468605Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:49:38.300738Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:49:43.429743Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:49:52.577482Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:49:57.272211Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:50:06.705517Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:50:11.354275Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:50:16.170082Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:50:25.876934Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:50:30.584060Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:50:40.293995Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:50:45.128774Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:50:54.737992Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:51:04.355699Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:59:26.392326Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:59:28.767402Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:59:31.278593Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:59:38.904624Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:59:41.169685Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:59:51.023070Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:59:53.282028Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T10:59:55.828089Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:00:06.247209Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:00:08.911682Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:00:11.322743Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:00:20.908961Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:00:23.304152Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:00:25.567138Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:00:35.206156Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:00:37.603385Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:00:40.124002Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:00:45.086898Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:00:47.560861Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:00:50.089976Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:00:55.225856Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:00:57.599521Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:01:02.434686Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:01:04.624017Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:01:07.104034Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:01:12.185265Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:01:15.068489Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:01:17.480337Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:01:22.427920Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:01:25.161833Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:01:27.572687Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:01:32.495572Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:01:34.979908Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:01:37.398068Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:01:42.388118Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:01:45.013595Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:01:49.871003Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:01:52.528355Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:01:55.029717Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:02:00.017762Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:02:02.467828Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:02:07.265810Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:02:09.950423Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:02:14.711921Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:02:19.506019Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:02:21.850423Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:02:26.768281Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:02:29.271077Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:02:34.185723Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:02:36.856460Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:02:41.891666Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:02:44.206198Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:02:46.793182Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:02:52.077922Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:02:54.594382Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:02:59.710661Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:03:02.122517Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:03:07.034006Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:03:11.732626Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:03:14.111859Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:03:19.915767Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      },
+      {
+        "ts": "2026-05-13T11:03:22.264124Z",
+        "action": "BLOCK_PERM",
+        "reason": "BLOCK_HIGH",
+        "ttl": null,
+        "plugin_id": null
+      }
+    ]
+  }
+}

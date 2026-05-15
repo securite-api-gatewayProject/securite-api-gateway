@@ -1,29 +1,20 @@
 %YAML 1.1
 ---
-# Suricata Configuration for Secure API Gateway
-# IDS/IPS pour détection d'intrusions et monitoring réseau
-
-####
-## Global settings
-####
 vars:
   address-groups:
     HOME_NET: "any"
     EXTERNAL_NET: "any"
   port-groups:
-    HTTP_PORTS: "80,81,1080,3128,6666,8000,8080,8118,8888,9080"
+    HTTP_PORTS: "8000"
     SHELLCODE_PORTS: "!80"
     SSH_PORTS: "22"
     DNS_PORTS: "53"
-    FILE_DATA_PORTS: "[$HTTP_PORTS,110,143]"
 
-# Logging configuration
 logging:
   default-log-level: notice
 
 default-log-dir: /var/log/suricata
 
-# IPv4 fragmentation reassembly
 defrag:
   memcap: 32mb
   hash-size: 65536
@@ -32,65 +23,45 @@ defrag:
   prealloc: yes
   timeout: 60
 
-# IPv6 fragmentation reassembly
-defrag6:
-  memcap: 16mb
-  hash-size: 65536
-  trackers: 32768
-  max-frags: 32768
-  prealloc: yes
-  timeout: 60
-
-# Flow settings
 flow:
   memcap: 128mb
   hash-size: 65536
   prealloc: 10000
   emergency-recovery: 30
-  managers: 1
-  recyclers: 1
-  manager-memcap: 32mb
-  recycler-memcap: 32mb
 
-# Stream reassembly
 stream:
   memcap: 64mb
-  checksum-validation: yes
+  checksum-validation: no
   inline: no
-  midstream-policy: "default"
-  max-synack-queued: 5
   reassembly:
     memcap: 256mb
     depth: 3mb
     toserver-chunk-size: 2560
     toclient-chunk-size: 2560
-    stream-order: linear
-    randomize-chunk-order: no
-    chunk-prealloc: 250
 
-# HTTP parsing
-http-log:
-  extended: yes
-  dump-all-headers: no
+app-layer:
+  protocols:
+    http:
+      enabled: yes
+      libhtp:
+        default-config:
+          personality: IDS
+          request-body-limit: 100kb
+          response-body-limit: 100kb
 
-http:
-  default-ports: [80, 81, 443, 591, 593, 832, 7080, 8000, 8008, 8080, 8118, 8888, 9000, 9080, 9090, 1080, 8888]
-
-# DNS
-dns:
-  request-flood: 10
-
-# AF-PACKET (live traffic capture)
+# Listen on ALL interfaces
 af-packet:
-  - interface: default
+  - interface: eth0
     threads: auto
     cluster-id: 99
     cluster-type: cluster_flow
     defrag: yes
-    use-mmap: yes
-    tpacket-v3: yes
+  - interface: lo
+    threads: auto
+    cluster-id: 98
+    cluster-type: cluster_flow
+    defrag: yes
 
-# Detection rules
 rule-files:
   - /var/lib/suricata/rules/suricata.rules
 
@@ -98,38 +69,26 @@ detection-engine:
   - rule-reload: true
     rule-reload-policy: "auto"
 
-# Preproc settings
-preproc:
-  frag3_global:
-    max_frags: 65536
-    prealloc: yes
-    timeout: 60
-  stream5_global:
-    memcap: 64000000
-    max_reassembly_depth: 3145728
-    checksum_eval: none
-    noalert: no
-    inline: no
-
-# Output plugins (minimal for debugging)
 outputs:
   - fast:
       enabled: yes
       filename: fast.log
       append: yes
 
-# Threading
+  - eve-log:
+      enabled: yes
+      filetype: regular
+      filename: eve.json
+      types:
+        - alert:
+            payload: yes
+            payload-printable: yes
+            metadata: yes
+        - http:
+            extended: yes
+        - dns
+        - flow
+
 threading:
   set-cpu-affinity: no
-  cpu-affinity:
-    - management-cpu-set: "0"
-    - receive-cpu-set: "0"
-    - worker-cpu-set: "all"
-    - other-cpu-set: "all"
   pattern: "worker"
-
-# Memory
-engine-analysis-submit: no
-
-# Variable definitions
-defines: []

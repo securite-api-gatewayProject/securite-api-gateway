@@ -1,0 +1,1170 @@
+{
+  "n_events": 105,
+  "metrics": {
+    "precision": 1.0,
+    "recall": 0.41904761904761906,
+    "f1": 0.5906040268456376
+  },
+  "feature_importances": [
+    0.3192717925871502,
+    0.08041497485134748,
+    0.0013182907660791415,
+    0.037209728265674875,
+    0.15319713256369122,
+    0.0175674603136139,
+    0.29841209325276363,
+    0.09260852739967956
+  ],
+  "results_sample": [
+    {
+      "src_ip": "0.0.0.0",
+      "ts": "2026-05-11T01:18:36.128708+00:00",
+      "url": "http://localhost:8000/users/login",
+      "method": "GET",
+      "status": 0,
+      "out": {
+        "rf": {
+          "prob": 0.06,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 24.707700009457767
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.13940001372247934
+        },
+        "decision": "BLOCK",
+        "latency_ms": 24.864700011676177
+      }
+    },
+    {
+      "src_ip": "0.0.0.0",
+      "ts": "2026-05-11T01:18:39.487483+00:00",
+      "url": "http://localhost:8000/users/login",
+      "method": "GET",
+      "status": 0,
+      "out": {
+        "rf": {
+          "prob": 0.02,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 27.155400021001697
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.1210999907925725
+        },
+        "decision": "BLOCK",
+        "latency_ms": 27.29260001797229
+      }
+    },
+    {
+      "src_ip": "0.0.0.0",
+      "ts": "2026-05-11T01:18:42.847714+00:00",
+      "url": "http://localhost:8000/users/login",
+      "method": "GET",
+      "status": 0,
+      "out": {
+        "rf": {
+          "prob": 0.02,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 14.428300026338547
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.10380000458098948
+        },
+        "decision": "BLOCK",
+        "latency_ms": 14.541299984557554
+      }
+    },
+    {
+      "src_ip": "0.0.0.0",
+      "ts": "2026-05-11T01:18:46.224666+00:00",
+      "url": "http://localhost:8000/users/login",
+      "method": "GET",
+      "status": 0,
+      "out": {
+        "rf": {
+          "prob": 0.02,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 23.35879998281598
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.1154000055976212
+        },
+        "decision": "BLOCK",
+        "latency_ms": 23.486999998567626
+      }
+    },
+    {
+      "src_ip": "0.0.0.0",
+      "ts": "2026-05-11T01:18:46.248648+00:00",
+      "url": "http://localhost:8000/users/login",
+      "method": "GET",
+      "status": 0,
+      "out": {
+        "rf": {
+          "prob": 0.06,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 31.71059998567216
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.13760000001639128
+        },
+        "decision": "BLOCK",
+        "latency_ms": 31.864299991866574
+      }
+    },
+    {
+      "src_ip": "0.0.0.0",
+      "ts": "2026-05-11T01:18:46.293276+00:00",
+      "url": "http://localhost:8000/users/login",
+      "method": "GET",
+      "status": 0,
+      "out": {
+        "rf": {
+          "prob": 0.1,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 23.17690002382733
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.145500001963228
+        },
+        "decision": "BLOCK",
+        "latency_ms": 23.337299993727356
+      }
+    },
+    {
+      "src_ip": "172.19.0.5",
+      "ts": "2026-05-11T01:25:23.562020+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.06,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 21.34859998477623
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.17859999206848443
+        },
+        "decision": "BLOCK",
+        "latency_ms": 21.537699998589233
+      }
+    },
+    {
+      "src_ip": "172.19.0.5",
+      "ts": "2026-05-11T01:25:23.562020+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.12,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 23.58720000484027
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.18129998352378607
+        },
+        "decision": "BLOCK",
+        "latency_ms": 23.781900003086776
+      }
+    },
+    {
+      "src_ip": "172.19.0.5",
+      "ts": "2026-05-11T01:25:23.562100+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.18,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 19.01349998661317
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.1362999901175499
+        },
+        "decision": "BLOCK",
+        "latency_ms": 19.161100004566833
+      }
+    },
+    {
+      "src_ip": "172.19.0.1",
+      "ts": "2026-05-11T01:25:23.564630+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.06,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 31.274500011932105
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.13150001177564263
+        },
+        "decision": "BLOCK",
+        "latency_ms": 31.43240002100356
+      }
+    },
+    {
+      "src_ip": "172.19.0.1",
+      "ts": "2026-05-11T01:25:23.564630+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.12,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 28.87329997611232
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.11409999569877982
+        },
+        "decision": "BLOCK",
+        "latency_ms": 28.99809999507852
+      }
+    },
+    {
+      "src_ip": "172.19.0.1",
+      "ts": "2026-05-11T01:25:23.564630+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.18,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 31.364900001790375
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.2717000024858862
+        },
+        "decision": "BLOCK",
+        "latency_ms": 31.64999998989515
+      }
+    },
+    {
+      "src_ip": "172.19.0.5",
+      "ts": "2026-05-11T01:25:23.594394+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.28,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 21.34560002014041
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.3619000199250877
+        },
+        "decision": "BLOCK",
+        "latency_ms": 21.72170000267215
+      }
+    },
+    {
+      "src_ip": "172.19.0.5",
+      "ts": "2026-05-11T01:25:23.594472+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.3,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 22.53210000344552
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.16269998741336167
+        },
+        "decision": "BLOCK",
+        "latency_ms": 22.709200013196096
+      }
+    },
+    {
+      "src_ip": "172.19.0.1",
+      "ts": "2026-05-11T01:25:23.597360+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.28,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 43.49730000831187
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.15619999612681568
+        },
+        "decision": "BLOCK",
+        "latency_ms": 43.67349998210557
+      }
+    },
+    {
+      "src_ip": "172.19.0.1",
+      "ts": "2026-05-11T01:25:23.597360+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.3,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 17.718099988996983
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.11500000255182385
+        },
+        "decision": "BLOCK",
+        "latency_ms": 17.84449999104254
+      }
+    },
+    {
+      "src_ip": "172.19.0.5",
+      "ts": "2026-05-11T01:25:23.642278+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.36,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 25.576400017598644
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.13760000001639128
+        },
+        "decision": "BLOCK",
+        "latency_ms": 25.72649999638088
+      }
+    },
+    {
+      "src_ip": "172.19.0.5",
+      "ts": "2026-05-11T01:25:23.642278+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.5,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 23.233599989907816
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.9079000155907124
+        },
+        "decision": "BLOCK",
+        "latency_ms": 24.220199993578717
+      }
+    },
+    {
+      "src_ip": "172.19.0.5",
+      "ts": "2026-05-11T01:25:23.642359+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.78,
+          "confidence": "MEDIUM",
+          "is_attack": true,
+          "latency_ms": 34.17160001117736
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.5751999851781875
+        },
+        "decision": "BLOCK_HIGH",
+        "latency_ms": 34.76270000101067
+      }
+    },
+    {
+      "src_ip": "172.19.0.1",
+      "ts": "2026-05-11T01:25:23.643575+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.36,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 30.252199998358265
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.15539999003522098
+        },
+        "decision": "BLOCK",
+        "latency_ms": 30.42049999930896
+      }
+    },
+    {
+      "src_ip": "172.19.0.1",
+      "ts": "2026-05-11T01:25:23.643575+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.5,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 29.964499990455806
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.1480999926570803
+        },
+        "decision": "BLOCK",
+        "latency_ms": 30.12669997406192
+      }
+    },
+    {
+      "src_ip": "172.19.0.1",
+      "ts": "2026-05-11T01:25:23.643575+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.78,
+          "confidence": "MEDIUM",
+          "is_attack": true,
+          "latency_ms": 23.7691999936942
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.12470001820474863
+        },
+        "decision": "BLOCK_HIGH",
+        "latency_ms": 23.906099988380447
+      }
+    },
+    {
+      "src_ip": "172.19.0.5",
+      "ts": "2026-05-11T01:25:23.675127+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.8,
+          "confidence": "MEDIUM",
+          "is_attack": true,
+          "latency_ms": 24.812899995595217
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.18769997404888272
+        },
+        "decision": "BLOCK_HIGH",
+        "latency_ms": 25.014700018800795
+      }
+    },
+    {
+      "src_ip": "172.19.0.5",
+      "ts": "2026-05-11T01:25:23.675127+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.82,
+          "confidence": "MEDIUM",
+          "is_attack": true,
+          "latency_ms": 22.66580000286922
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.15079998411238194
+        },
+        "decision": "BLOCK_HIGH",
+        "latency_ms": 22.82829998875968
+      }
+    },
+    {
+      "src_ip": "172.19.0.5",
+      "ts": "2026-05-11T01:25:23.675203+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.82,
+          "confidence": "MEDIUM",
+          "is_attack": true,
+          "latency_ms": 29.268399986904114
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.1708999916445464
+        },
+        "decision": "BLOCK_HIGH",
+        "latency_ms": 29.45420000469312
+      }
+    },
+    {
+      "src_ip": "172.19.0.1",
+      "ts": "2026-05-11T01:25:23.676731+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.8,
+          "confidence": "MEDIUM",
+          "is_attack": true,
+          "latency_ms": 23.97100001689978
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.17260000458918512
+        },
+        "decision": "BLOCK_HIGH",
+        "latency_ms": 24.162799993064255
+      }
+    },
+    {
+      "src_ip": "172.19.0.1",
+      "ts": "2026-05-11T01:25:23.676731+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.82,
+          "confidence": "MEDIUM",
+          "is_attack": true,
+          "latency_ms": 23.535700020147488
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.1435000158380717
+        },
+        "decision": "BLOCK_HIGH",
+        "latency_ms": 23.692799994023517
+      }
+    },
+    {
+      "src_ip": "172.19.0.1",
+      "ts": "2026-05-11T01:25:23.676731+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.82,
+          "confidence": "MEDIUM",
+          "is_attack": true,
+          "latency_ms": 23.294599988730624
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.13139998191036284
+        },
+        "decision": "BLOCK_HIGH",
+        "latency_ms": 23.4372999984771
+      }
+    },
+    {
+      "src_ip": "172.19.0.5",
+      "ts": "2026-05-11T01:25:23.708300+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.82,
+          "confidence": "MEDIUM",
+          "is_attack": true,
+          "latency_ms": 20.741299988003448
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.1582999830134213
+        },
+        "decision": "BLOCK_HIGH",
+        "latency_ms": 20.911100000375882
+      }
+    },
+    {
+      "src_ip": "172.19.0.5",
+      "ts": "2026-05-11T01:25:23.708300+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.82,
+          "confidence": "MEDIUM",
+          "is_attack": true,
+          "latency_ms": 14.123400003882125
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.09479999425821006
+        },
+        "decision": "BLOCK_HIGH",
+        "latency_ms": 14.227599982405081
+      }
+    },
+    {
+      "src_ip": "172.19.0.5",
+      "ts": "2026-05-11T01:25:23.708351+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.82,
+          "confidence": "MEDIUM",
+          "is_attack": true,
+          "latency_ms": 25.03490002709441
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.16270001651719213
+        },
+        "decision": "BLOCK_HIGH",
+        "latency_ms": 25.207200000295416
+      }
+    },
+    {
+      "src_ip": "172.19.0.1",
+      "ts": "2026-05-11T01:25:23.714438+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.82,
+          "confidence": "MEDIUM",
+          "is_attack": true,
+          "latency_ms": 31.359300017356873
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.18319999799132347
+        },
+        "decision": "BLOCK_HIGH",
+        "latency_ms": 31.55689997947775
+      }
+    },
+    {
+      "src_ip": "172.19.0.1",
+      "ts": "2026-05-11T01:25:23.714438+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.82,
+          "confidence": "MEDIUM",
+          "is_attack": true,
+          "latency_ms": 21.050299983471632
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.1230000052601099
+        },
+        "decision": "BLOCK_HIGH",
+        "latency_ms": 21.18420001352206
+      }
+    },
+    {
+      "src_ip": "172.19.0.1",
+      "ts": "2026-05-11T01:25:23.714438+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.82,
+          "confidence": "MEDIUM",
+          "is_attack": true,
+          "latency_ms": 20.213000010699034
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.1863999932538718
+        },
+        "decision": "BLOCK_HIGH",
+        "latency_ms": 20.412399986525998
+      }
+    },
+    {
+      "src_ip": "172.19.0.5",
+      "ts": "2026-05-11T01:25:23.736437+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.82,
+          "confidence": "MEDIUM",
+          "is_attack": true,
+          "latency_ms": 27.65699999872595
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.2883999841287732
+        },
+        "decision": "BLOCK_HIGH",
+        "latency_ms": 27.961300016613677
+      }
+    },
+    {
+      "src_ip": "172.19.0.5",
+      "ts": "2026-05-11T01:25:23.736437+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.82,
+          "confidence": "MEDIUM",
+          "is_attack": true,
+          "latency_ms": 28.16260000690818
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.14459999511018395
+        },
+        "decision": "BLOCK_HIGH",
+        "latency_ms": 28.320099983830005
+      }
+    },
+    {
+      "src_ip": "172.19.0.5",
+      "ts": "2026-05-11T01:25:23.736534+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.82,
+          "confidence": "MEDIUM",
+          "is_attack": true,
+          "latency_ms": 26.399499998660758
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.11100000119768083
+        },
+        "decision": "BLOCK_HIGH",
+        "latency_ms": 26.52519999537617
+      }
+    },
+    {
+      "src_ip": "172.19.0.1",
+      "ts": "2026-05-11T01:25:23.737348+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.82,
+          "confidence": "MEDIUM",
+          "is_attack": true,
+          "latency_ms": 31.459499994525686
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.17579999985173345
+        },
+        "decision": "BLOCK_HIGH",
+        "latency_ms": 31.64859997923486
+      }
+    },
+    {
+      "src_ip": "172.19.0.1",
+      "ts": "2026-05-11T01:25:23.737348+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.82,
+          "confidence": "MEDIUM",
+          "is_attack": true,
+          "latency_ms": 30.68830000120215
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.22929999977350235
+        },
+        "decision": "BLOCK_HIGH",
+        "latency_ms": 30.934800015529618
+      }
+    },
+    {
+      "src_ip": "172.19.0.1",
+      "ts": "2026-05-11T01:25:23.737348+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.82,
+          "confidence": "MEDIUM",
+          "is_attack": true,
+          "latency_ms": 25.246000004699454
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.1604999997653067
+        },
+        "decision": "BLOCK_HIGH",
+        "latency_ms": 25.419100013095886
+      }
+    },
+    {
+      "src_ip": "172.19.0.5",
+      "ts": "2026-05-11T01:28:32.775960+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.06,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 27.60989998932928
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.16820000018924475
+        },
+        "decision": "BLOCK",
+        "latency_ms": 27.79500000178814
+      }
+    },
+    {
+      "src_ip": "172.19.0.1",
+      "ts": "2026-05-11T01:28:32.779640+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.06,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 20.88319999165833
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.15740000526420772
+        },
+        "decision": "BLOCK",
+        "latency_ms": 21.05640000081621
+      }
+    },
+    {
+      "src_ip": "172.19.0.1",
+      "ts": "2026-05-11T01:28:32.779640+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.12,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 26.01690002484247
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.1297999988310039
+        },
+        "decision": "BLOCK",
+        "latency_ms": 26.15900000091642
+      }
+    },
+    {
+      "src_ip": "172.19.0.1",
+      "ts": "2026-05-11T01:28:32.779640+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.18,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 22.80950002023019
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.1467999827582389
+        },
+        "decision": "BLOCK",
+        "latency_ms": 22.97099999850616
+      }
+    },
+    {
+      "src_ip": "172.19.0.5",
+      "ts": "2026-05-11T01:28:32.814853+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.12,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 21.756500005722046
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.1210999907925725
+        },
+        "decision": "BLOCK",
+        "latency_ms": 21.888499992201105
+      }
+    },
+    {
+      "src_ip": "172.19.0.1",
+      "ts": "2026-05-11T01:28:32.822701+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.28,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 18.972799996845424
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.1362999901175499
+        },
+        "decision": "BLOCK",
+        "latency_ms": 19.122500001685694
+      }
+    },
+    {
+      "src_ip": "172.19.0.1",
+      "ts": "2026-05-11T01:28:32.822701+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.3,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 18.3614999987185
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.11560000712051988
+        },
+        "decision": "BLOCK",
+        "latency_ms": 18.488300003809854
+      }
+    },
+    {
+      "src_ip": "172.19.0.5",
+      "ts": "2026-05-11T01:28:32.849851+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.18,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 23.40200002072379
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.1432000135537237
+        },
+        "decision": "BLOCK",
+        "latency_ms": 23.55769998393953
+      }
+    },
+    {
+      "src_ip": "172.19.0.1",
+      "ts": "2026-05-11T01:28:32.852438+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.36,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 48.998799989931285
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.16820000018924475
+        },
+        "decision": "BLOCK",
+        "latency_ms": 49.17850001947954
+      }
+    },
+    {
+      "src_ip": "172.19.0.1",
+      "ts": "2026-05-11T01:28:32.852438+00:00",
+      "url": "/users/login",
+      "method": "POST",
+      "status": 401,
+      "out": {
+        "rf": {
+          "prob": 0.5,
+          "confidence": "LOW",
+          "is_attack": false,
+          "latency_ms": 23.51319999434054
+        },
+        "ae": {
+          "prob": 1.0,
+          "confidence": "HIGH",
+          "is_attack": true,
+          "latency_ms": 0.15730000450275838
+        },
+        "decision": "BLOCK",
+        "latency_ms": 23.683100007474422
+      }
+    }
+  ]
+}
